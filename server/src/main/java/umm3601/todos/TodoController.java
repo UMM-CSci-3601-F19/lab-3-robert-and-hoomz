@@ -27,7 +27,7 @@ public class TodoController {
    *
    * @param todoDatabase the todoDatabase containing todo data
    */
-  public TodoController(Database todoDatabase) {
+  public TodoController(TodoDatabase todoDatabase) {
     gson = new Gson();
     this.todoDatabase = todoDatabase;
   }

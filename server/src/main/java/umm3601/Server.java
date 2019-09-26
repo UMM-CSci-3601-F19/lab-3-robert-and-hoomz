@@ -73,10 +73,12 @@ public class Server {
     /////////////////////////////////////////////
 
     // List todos
-    get("api/todos", (req, res) -> {
-      res.type("application/json");
-      return gson.toJson(TodoController.listTodos(req.queryMap().toMap()));
-    });
+    get("api/todos", todoController::getTodos);
+
+//      (req, res) -> {
+//      res.type("application/json");
+//      return gson.toJson(TodoController.listTodos(req.queryMap().toMap()));
+//    })
 
     // See specific todos
     get("api/todos/:id", (req, res) -> {

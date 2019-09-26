@@ -6,9 +6,10 @@ import spark.Filter;
 import com.google.gson.Gson;
 import spark.Request;
 import spark.Response;
-import umm3601.todo.ToDoController;
+import umm3601.todos.TodoController;
 import umm3601.user.Database;
 import umm3601.user.UserController;
+import umm3601.todos.TodoDatabase;
 
 import java.io.IOException;
 
@@ -18,12 +19,14 @@ import static spark.debug.DebugScreen.*;
 public class Server {
   public static final String USER_DATA_FILE = "src/main/data/users.json";
   private static Database userDatabase;
+  public static final String TODO_DATA_FILE = "src/main/data/todos.json";
+  private static TodoDatabase todoDatabase;
 
   public static void main(String[] args) throws IOException {
     final Gson gson = new Gson();
 
     UserController userController = buildUserController();
-    ToDoController toDoController = new ToDoController();
+    TodoController todoController = buildTodoController();
 
     //Configure Spark
     port(4567);
@@ -72,14 +75,14 @@ public class Server {
     // List todos
     get("api/todos", (req, res) -> {
       res.type("application/json");
-      return gson.toJson(toDoController.listToDos(req.queryMap().toMap()));
+      return gson.toJson(TodoController.listTodos(req.queryMap().toMap()));
     });
 
     // See specific todos
     get("api/todos/:id", (req, res) -> {
       res.type("application/json");
       String id = req.params("id");
-      return gson.toJson(toDoController.getToDo(id));
+      return gson.toJson(TodoController.getTodo(id));
     });
 
     // An example of throwing an unhandled exception so you can see how the
@@ -130,6 +133,24 @@ public class Server {
     }
 
     return userController;
+  }
+
+  private static TodoController buildTodoController() {
+    TodoController todoController = null;
+
+    try {
+      todoDatabase = new TodoDatabase(TODO_DATA_FILE);
+      todoController = new TodoController(todoDatabase);
+    } catch (IOException e) {
+      System.err.println("The server failed to load the todo data; shutting down.");
+      e.printStackTrace(System.err);
+
+      // Shut the server down
+      stop();
+      System.exit(1);
+    }
+
+    return todoController;
   }
 
   // Enable GZIP for all responses

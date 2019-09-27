@@ -81,11 +81,13 @@ public class Server {
 //    })
 
     // See specific todos
-    get("api/todos/:id", (req, res) -> {
-      res.type("application/json");
-      String id = req.params("id");
-      return gson.toJson(TodoController.getTodo(id));
-    });
+    get("api/todos/:id", todoController::getTodo);
+
+//      (req, res) -> {
+//      res.type("application/json");
+//      String id = req.params("id");
+//      return gson.toJson(TodoController.getTodo(id));
+//    })
 
     // An example of throwing an unhandled exception so you can see how the
     // Java Spark debugger displays errors like this.

@@ -49,5 +49,7 @@ describe('User list', () => {
 
     expect(page.getUniqueUser("merrillparker@escenta.com")).toEqual("Merrill Parker");
 
+    expect(page.getUniqueUser("boltonmonroe@vinch.com")).toEqual("Bolton Monroe");
+
   });
 });

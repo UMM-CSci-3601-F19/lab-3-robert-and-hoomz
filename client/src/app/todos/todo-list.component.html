@@ -19,6 +19,7 @@
             type="boolean"
             placeholder="Filter by status"
             (input)="updateStatus($event.target.value)">
+          <mat-hint align="start">True or False</mat-hint>
         </mat-form-field>
         <mat-form-field>
           <input
@@ -26,11 +27,10 @@
           id="todoBody"
           placeholder="Contained in Body"
           (input)="updateBody($event.target.value)">
+          <mat-hint align="start">Looking for something in a body?</mat-hint>
 
         </mat-form-field>
-        <!--<mat-form-field>-->
-        <!--<input matInput id="userCompany" #input type="text" placeholder="Search for company" (input)="contentChange($event.target.value)">-->
-        <!--</mat-form-field>-->
+
 
         <mat-accordion *ngIf="todos; else todosError">
           <mat-expansion-panel #elem [id]="todo.category" *ngFor="let todo of this.filteredTodos">
@@ -44,7 +44,7 @@
 
           </mat-expansion-panel>
         </mat-accordion>
-        <!-- Maybe this should be a pop-up instead of just a text message? Not sure. -->
+
         <ng-template #todosError>
           <mat-error>
             There was a problem loading the todos. Possibly the server is down or perhaps there are network

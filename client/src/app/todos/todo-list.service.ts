@@ -36,16 +36,23 @@ export class TodoListService {
 
     // Filter by status
     if (searchStatus != null) {
-      filteredTodos = filteredTodos.filter((todo: Todo) => {
-        return !searchStatus || (todo.status === Boolean(searchStatus));
-      });
+      if (searchStatus == true) {
+        filteredTodos = filteredTodos.filter(todo => {
+          return !searchStatus || (todo.status == Boolean(searchStatus));
+        })
+      } else {
+        filteredTodos = filteredTodos.filter(todo => {
+          return !searchStatus || (todo.status != Boolean(searchStatus));
+        })
+      }
     }
-    //filter by body
-    if (searchBody != null){
+
+    // filter by body
+    if (searchBody != null) {
       searchBody = searchBody.toLowerCase();
-      filteredTodos = filteredTodos.filter(todo =>{
+      filteredTodos = filteredTodos.filter(todo => {
         return !searchBody || todo.body.toLowerCase().indexOf(searchBody) !== -1;
-      })
+      });
     }
 
     return filteredTodos;

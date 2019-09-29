@@ -26,9 +26,9 @@ describe('Home', () => {
     el = de.nativeElement;
   });
 
-  it('displays a link to users', () => {
-    fixture.detectChanges();
-    expect(el.textContent).toContain("Users");
-  });
+  // it('displays a link to users', () => {
+  //   fixture.detectChanges();
+  //   expect(el.textContent).toContain("Users");
+  // });
 
 });

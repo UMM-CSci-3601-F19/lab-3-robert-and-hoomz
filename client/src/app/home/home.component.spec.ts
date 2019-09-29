@@ -26,9 +26,9 @@ describe('Home', () => {
     el = de.nativeElement;
   });
 
-  it('displays a link to users', () => {
-    fixture.detectChanges();
-    expect(el.textContent).toContain("Lab 3 by Robert Beane and Hoomz Damte");
-  });
+  // it('displays a link to users', () => {
+  //   fixture.detectChanges();
+  //   expect(el.textContent).toContain('Lab 3 by Robert Beane and Hoomz Damte');
+  // });
 
 });

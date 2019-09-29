@@ -32,7 +32,6 @@
 
         </mat-form-field>
 
-
         <mat-accordion *ngIf="todos; else todosError">
           <mat-expansion-panel #elem [id]="todo.category" *ngFor="let todo of this.filteredTodos">
             <mat-expansion-panel-header>

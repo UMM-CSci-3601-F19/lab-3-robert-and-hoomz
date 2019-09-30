@@ -35,4 +35,30 @@ describe('Todo list',  () =>{
     expect(page.getUniqueTodo("homework")).toEqual("Workman");
   });
 
+  it ('get a owner with certain words in the body', ()=>{
+    page.navigateTo();
+    page.typeABody("cillum")
+    expect(page.getUniqueTodo('software design')).toEqual('Blanche');
+    page.backspace();
+    page.backspace();
+    page.backspace();
+    page.backspace();
+    page.backspace();
+    page.backspace();
+    page.typeABody("occaeca");
+    expect(page.getUniqueTodo('video games')).toEqual('Workman');
+  });
+
+  it ('find someone when given true or false', ()=>{
+    page.navigateTo();
+    page.getTodoByStatus('true');
+    expect(page.getUniqueTodo('homework')).toEqual('Fry');
+    page.backspace();
+    page.backspace();
+    page.backspace();
+    page.backspace();
+    page.getTodoByStatus('false');
+    expect(page.getUniqueTodo('video games')).toEqual('Roberta');
+  });
+
 });

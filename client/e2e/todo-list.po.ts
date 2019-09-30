@@ -31,15 +31,18 @@ typeAOwner(owner: string){
     input.sendKeys(owner);
 }
 
-selectUpKey(){
-    browser.actions().sendKeys(Key.ARROW_UP).perform();
+typeABody(body: string){
+    let input = element(by.id('todoBody'));
+    input.click();
+    input.sendKeys(body);
 }
 
-getTodoByStatus(){
+getTodoByStatus(status: string){
     let input = element(by.id('todoOwner'));
     input.click();
-    input.sendKeys(Key.TAB);
+    input.sendKeys(status);
 }
+
 backspace(){
     browser.actions().sendKeys(Key.BACK_SPACE).perform();
 }

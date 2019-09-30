@@ -34,7 +34,7 @@ describe('User list', () => {
     page.typeAName("t");
     expect(page.getUniqueUser("kittypage@surelogic.com")).toEqual("Kitty Page");
     page.backspace();
-    page.typeAName("lynn")
+    page.typeAName("lynn");
     expect(page.getUniqueUser("lynnferguson@niquent.com")).toEqual("Lynn Ferguson");
   });
 

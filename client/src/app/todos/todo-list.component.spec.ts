@@ -79,7 +79,7 @@ describe('Todo list', () => {
     expect(todoList.todos.some((todo: Todo) => todo.owner === 'Darude')).toBe(false);
   });
 
-  it('has two todos that have the status of true', () => {
+  it('should get two todos that have the status of true', () => {
     expect(todoList.todos.filter((todo: Todo) => todo.status === true).length).toBe(2);
   });
 });

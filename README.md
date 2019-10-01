@@ -1,4 +1,6 @@
 # CSCI 3601 Lab #3 - Angular and Spark Lab
+[Google doc with answers to questions][question-answers]
+
 [![Build Status](https://travis-ci.org/UMM-CSci-3601-F19/lab-3-robert-and-hoomz.svg?branch=master)](https://travis-ci.org/UMM-CSci-3601-F19/lab-3-robert-and-hoomz)
 
 During this lab, you will expand on the ToDo API you created in the previous lab
@@ -93,5 +95,6 @@ Turn on your repo in [Travis CI][travis], replace the build status image in this
 [travis]: https://travis-ci.org/
 [angular-cli-commands]: https://github.com/angular/angular-cli/wiki
 [status-codes]: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+[question-answers]: https://docs.google.com/document/d/1DWdoMMKl9Xj91rY5hWY2k6VApBRvbVX-cevP165vwMI/edit?usp=sharing
 
 
